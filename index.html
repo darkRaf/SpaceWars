@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style-game.css">
+</head>
+
+<body>
+  <div class="container-game">
+    <div class="congratulation-box" data-congratulation>
+      <span></span>
+    </div>
+
+    <!-- Table of winners -->
+    <div class="winner-box" data-winner-box>
+      <div class="winner-box-content">
+        <div>
+          <span>Table of winners:</span>
+          <div class="winner-border">
+            <span class="winner-name"><span class="winne-place">1.</span>Kazik</span>
+            <span class="winner-score">15878854</span>
+          </div>
+          <div class="winner-border">
+            <span class="winner-name"><span class="winne-place">2.</span>Kazik</span>
+            <span class="winner-score">15878854</span>
+          </div>
+          <div class="winner-border">
+            <span class="winner-name"><span class="winne-place">3.</span>Kazik</span>
+            <span class="winner-score">15878854</span>
+          </div>
+        </div>
+
+        <button class="btn-new-game" data-btn-new-game>New Game</button>
+      </div>
+    </div>
+
+    <!-- Menu start game -->
+    <div class="new-game-box" data-new-game-box>
+      <div class="new-game-box-content">
+        <div>
+          <span>Enter Your name</span>
+          <div class="new-game-enter-name">
+            <input type="text" name="userName" maxlength="12" class="userName" data-user-name>
+            <span class="error-userName" data-error-user></span>
+          </div>
+        </div>
+        <div>
+          <span>Select difficulty</span>
+          <div class="new-game-buttons">
+            <div>
+              <button class="btn-easy" data-btn-easy data-mode="easy">Easy</button>
+              <button class="btn-normal" data-btn-normal data-mode="normal">Normal</button>
+            </div>
+            <div>
+              <button class="btn-hard" data-btn-hard data-mode="hard">Hard</button>
+              <button class="btn-extreme" data-btn-extreme data-mode="extreme">Extreme</button>
+            </div>
+          </div>
+        </div>
+        <button class="btn-start" data-btn-start>Start Game</button>
+      </div>
+    </div>
+
+    <!-- Settings -->
+    <div class="settings-box" data-settings>
+      <div class="title-settings">Settings</div class="title-settings">
+      <div class="close_settings" data-close-settings>&#x2716</div>
+      <div class="settings-box-content">
+        <div>
+          Stars
+          <div class="settings-volume-section">
+            <div class="settings-volume-container">
+              <span>0</span>
+              <input type="range" min="0" max="50" value="50" data-range-stars>
+              <span>50</span>
+              <div class="stars-display" data-display-value>50</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          Audio
+          <div class="settings-volume-section">
+            <span>Sound</span>
+            <div class="settings-volume-container">
+              <span>0</span>
+              <input type="range" name="" id="" min="0" max="100" value="20" data-music-volume>
+              <span>100</span>
+              <div class="volume-display" data-display-value>20</div>
+            </div>
+            <div class="settings-author">
+              <p>Author: <span data-author-name>Alexandr Zhelanov</span></p>
+              <p>www: <span data-author-www>https://soundcloud.com/alexandr-zhelanov</span></p>
+            </div>
+          </div>
+          <div class="settings-volume-section">
+            <span>Shots</span>
+            <div class="settings-volume-container">
+              <span>0</span>
+              <input type="range" name="" id="" min="0" max="100" value="50" data-shot-volume>
+              <span>100</span>
+              <div class="volume-display" data-display-value>50</div>
+            </div>
+            <div class="settings-author">
+              <p>Author: <span data-author-name></span></p>
+              <p>www: <span data-author-www></span></p>
+            </div>
+          </div>
+          <div class="settings-volume-section">
+            <span>Explosions</span>
+            <div class="settings-volume-container">
+              <span>0</span>
+              <input type="range" name="" id="" min="0" max="100" value="100" data-explosion-volume>
+              <span>100</span>
+              <div class="volume-display" data-display-value>100</div>
+            </div>
+            <div class="settings-author">
+              <p>Author: <span data-author-name></span></p>
+              <p>www: <span data-author-www></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game header -->
+    <div class="header-game">
+      <div class="header-eneymy">
+        <div class="enemy-text">Enemy:</div>
+        <div class="enemy-count">0</div>
+      </div>
+      <div class="header-score">
+        <span class="header-score-text">Score:</span>
+        <div class="header-score-box">
+          <div class="display-score">
+            <span class="display-num">8</span>
+            <span class="display-num">8</span>
+            <span class="display-num">8</span>
+            <span class="display-num">8</span>
+            <span class="display-num">8</span>
+            <span class="display-num">8</span>
+            <span class="display-num">8</span>
+          </div>
+          <div class="display-score-light">
+            <span class="display-num"></span>
+            <span class="display-num"></span>
+            <span class="display-num"></span>
+            <span class="display-num"></span>
+            <span class="display-num"></span>
+            <span class="display-num"></span>
+            <span class="display-num">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Game canvas -->
+    <canvas class="canvas-game" width="800" height="600"></canvas>
+    <div class="cockpit-game">
+      <div class="cockpit-section side-section cockpit-left">
+        <div class="cockpit-left-ll">
+          <div>Ammo</div>
+          <div class="cockpit-ammo cockpit-first-ammo">
+
+            <div class="cockpit-first-num">
+              <div>
+                <span>0</span><span class="dot">.</span>
+              </div>
+              <div>
+                <span>0</span><span>0</span><span>0</span>
+              </div>
+            </div>
+            <div class="cockpit-second-num">
+              <div>
+                <span>1</span><span class="dot">.</span>
+              </div>
+              <div data-ammo-missiles data-cockpit-ammo>
+              </div>
+            </div>
+          </div>
+
+          <div class="cockpit-ammo cockpit-second-ammo">
+            <div class="cockpit-first-num">
+              <div>
+                <span>0</span><span class="dot">.</span>
+              </div>
+              <div>
+                <span>0</span><span>0</span><span>0</span>
+              </div>
+            </div>
+            <div class="cockpit-second-num">
+              <div>
+                <span>2</span><span class="dot">.</span>
+              </div>
+              <div data-ammo-rockets data-cockpit-ammo>
+              </div>
+            </div>
+          </div>
+
+          <div class="cockpit-ammo cockpit-third-ammo">
+            <div class="cockpit-first-num">
+              <div>
+                <span>0</span><span class="dot">.</span>
+              </div>
+              <div>
+                <span>0</span><span>0</span><span>0</span>
+              </div>
+            </div>
+            <div class="cockpit-second-num">
+              <div>
+                <span>3</span><span class="dot">.</span>
+              </div>
+              <div data-ammo-rockets2 data-cockpit-ammo>
+              </div>
+            </div>
+          </div>
+
+          <div class="cockpit-ammo cockpit-fourth-ammo">
+            <div class="cockpit-first-num">
+              <div>
+                <span>0</span><span class="dot">.</span>
+              </div>
+              <div>
+                <span>0</span><span>0</span><span>0</span>
+              </div>
+            </div>
+            <div class="cockpit-second-num">
+              <div>
+                <span>4</span><span class="dot">.</span>
+              </div>
+              <div data-cockpit-ammo>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cockpit-left-lc">
+          <div class="cockpit-display-img" data-display-img></div>
+          <div class="cocpit-display-info">
+            <div>
+              <span>Power: </span><span class="ammo-active" data-power-ammo>50</span>
+            </div>
+            <div>
+              <span>Max: </span><span class="ammo-active" data-max-ammo>50</span>
+            </div>
+          </div>
+        </div>
+        <div class="cockpit-display-percent">
+          <div class="percent-ammo" data-percent-ammo></div>
+        </div>
+      </div>
+      <div class="cockpit-section cockpit-center">
+        <div class="cockpit-lifes">
+          <span class="spaceship" data-spaceship-life>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_933_250)">
+                <path d="M7 9L10 0L13 9L20 16L18 20H13L12 18H8L7 20H2L0 16L7 9Z" fill="#00BF13" />
+                <path d="M9 7L10 6L11 7L12 10L11 11H9L8 10L9 7Z" fill="#1E1E1E" />
+              </g>
+              <defs>
+                <clipPath id="clip0_933_250">
+                  <rect width="20" height="20" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </span>
+          <span class="spaceship" data-spaceship-life>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_933_250)">
+                <path d="M7 9L10 0L13 9L20 16L18 20H13L12 18H8L7 20H2L0 16L7 9Z" fill="#00BF13" />
+                <path d="M9 7L10 6L11 7L12 10L11 11H9L8 10L9 7Z" fill="#1E1E1E" />
+              </g>
+              <defs>
+                <clipPath id="clip0_933_250">
+                  <rect width="20" height="20" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </span>
+          <span class="spaceship" data-spaceship-life>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_933_250)">
+                <path d="M7 9L10 0L13 9L20 16L18 20H13L12 18H8L7 20H2L0 16L7 9Z" fill="#00BF13" />
+                <path d="M9 7L10 6L11 7L12 10L11 11H9L8 10L9 7Z" fill="#1E1E1E" />
+              </g>
+              <defs>
+                <clipPath id="clip0_933_250">
+                  <rect width="20" height="20" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+          </span>
+        </div>
+        <div class="cockpit-center-radar">
+          <svg width="247" height="86" viewBox="0 0 248 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_918_239)">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M1.13746 66.0996L123.5 84.5L246.861 66.0953C246.951 66.3808 247 66.6847 247 67V82C247 83.6569 245.657 85 244 85H4C2.34314 85 1 83.6569 1 82V67C1 66.6863 1.04815 66.3839 1.13746 66.0996Z"
+                fill="black" />
+              <path d="M124 85L1 66M124 85L247 66M124 85L50 -3M124 85L198 -3" stroke="#36b92242" />
+            </g>
+            <defs>
+              <clipPath id="clip0_918_239">
+                <rect width="248" height="86" rx="3" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+          <canvas class="canvas-radar" width="247" height="86" data-canvas-radar></canvas>
+        </div>
+      </div>
+
+      <!-- Game cockpit -->
+      <div class="cockpit-section side-section cockpit-right">
+        <div class="cockpit-right-rl">
+          <svg width="25" height="30" viewBox="0 0 25 30" fill="none" xmlns="http://www.w3.org/2000/svg" class="shield">
+            <path d="M23 5C16 5 13 1 13 1C13 1 10 5 2 5C3.20727 19.2021 4 22.2624 13 29C22 22 21.8972 18.4362 23 5Z"
+              fill="url(#paint0_linear_1005_249)" stroke="#00BF13" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="13" cy="13" r="7" fill="url(#paint1_linear_1005_249)" />
+            <path d="M11 11L13 7L15 11L20 15L19 18H7L6 15L11 11Z" stroke="#8CF77B" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <defs>
+              <linearGradient id="paint0_linear_1005_249" x1="23" y1="13" x2="2" y2="13" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#00BF13" />
+                <stop offset="0.369792" stop-color="#00BF13" stop-opacity="0.49" />
+                <stop offset="1" stop-color="#00BF13" />
+              </linearGradient>
+              <linearGradient id="paint1_linear_1005_249" x1="6" y1="13.5" x2="19.5" y2="13.5"
+                gradientUnits="userSpaceOnUse">
+                <stop stop-color="#5546FF" />
+                <stop offset="0.583333" stop-color="#5546FF" stop-opacity="0.44" />
+                <stop offset="1" stop-color="#5546FF" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="shield-timer" data-shield-timer></div>
+        </div>
+        <div class="cockpit-right-info">
+
+        </div>
+        <div class="cockpit-right-settings">
+          <div class="ico-settings" data-ico-settings>
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M24.9228 16.2695C24.9796 15.8485 25.01 15.4246 25.014 15C25.01 14.5754 24.9796 14.1515 24.9228 13.7305L27.744 11.5786C27.8713 11.4838 27.9584 11.3466 27.9884 11.1932C28.0185 11.0398 27.9894 10.8809 27.9068 10.7471L25.2356 6.23391C25.1582 6.09853 25.0327 5.99541 24.8827 5.94396C24.7326 5.89252 24.5685 5.8963 24.4211 5.95461L21.0918 7.26223C20.399 6.7471 19.6415 6.32046 18.8375 5.9927L18.3358 2.54593C18.3137 2.39341 18.2354 2.25393 18.1155 2.1535C17.9957 2.05306 17.8424 1.99851 17.6843 2.00003H12.3287C12.1706 1.99851 12.0174 2.05306 11.8975 2.1535C11.7776 2.25393 11.6993 2.39341 11.6772 2.54593L11.1755 5.9927C10.3705 6.31842 9.61269 6.74521 8.92121 7.26223L5.57886 5.95461C5.43151 5.8963 5.26736 5.89252 5.11735 5.94396C4.96733 5.99541 4.84181 6.09853 4.76444 6.23391L2.09317 10.7471C2.01056 10.8809 1.9815 11.0398 2.01155 11.1932C2.0416 11.3466 2.12865 11.4838 2.25605 11.5786L5.07066 13.7305C5.01413 14.1515 4.98367 14.5754 4.97945 15C4.98344 15.4246 5.01391 15.8485 5.07066 16.2695L2.25605 18.4214C2.12865 18.5162 2.0416 18.6534 2.01155 18.8068C1.9815 18.9602 2.01056 19.1191 2.09317 19.2529L4.76444 23.7661C4.84181 23.9015 4.96733 24.0046 5.11735 24.056C5.26736 24.1075 5.43151 24.1037 5.57886 24.0454L8.90818 22.7378C9.60096 23.2529 10.3585 23.6795 11.1625 24.0073L11.6642 27.4541C11.6863 27.6066 11.7646 27.7461 11.8845 27.8465C12.0043 27.9469 12.1576 28.0015 12.3157 28H17.6582C17.8163 28.0015 17.9696 27.9469 18.0895 27.8465C18.2094 27.7461 18.2877 27.6066 18.3098 27.4541L18.8115 24.0073C19.6164 23.6816 20.3743 23.2548 21.0658 22.7378L24.3951 24.0454C24.5424 24.1037 24.7066 24.1075 24.8566 24.056C25.0066 24.0046 25.1321 23.9015 25.2095 23.7661L27.8808 19.2529C27.9634 19.1191 27.9924 18.9602 27.9624 18.8068C27.9323 18.6534 27.8453 18.5162 27.7179 18.4214L24.9228 16.2695ZM15 19.5576C14.0745 19.5589 13.1694 19.2926 12.3993 18.7926C11.6291 18.2926 11.0285 17.5812 10.6735 16.7485C10.3184 15.9158 10.2248 14.9993 10.4046 14.1148C10.5843 13.2302 11.0294 12.4176 11.6833 11.7795C12.3373 11.1415 13.1708 10.7068 14.0785 10.5304C14.9861 10.3541 15.927 10.4439 16.7822 10.7887C17.6373 11.1335 18.3683 11.7176 18.8826 12.4673C19.397 13.2169 19.6715 14.0983 19.6715 15C19.6723 15.5982 19.5521 16.1907 19.3178 16.7436C19.0834 17.2966 18.7394 17.799 18.3055 18.2223C17.8717 18.6456 17.3564 18.9814 16.7892 19.2106C16.222 19.4397 15.614 19.5576 15 19.5576V19.5576Z"
+                stroke="#FFBE17" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="ico-settings" data-ico-settings>
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="speaker" data-speaker>
+              <path
+                d="M10 10H4V20H10M10 10L18 2V28L10 20M10 10V20M21 6C24 11 24 19 21 24M25 9C27 12 27 18 25 21M18 9C21 13 21 17 18 21"
+                stroke="#00BF13" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="mute speaker-hidden" data-muted>
+              <path d="M10 10H4V20H10M10 10L18 2V28L10 20M10 10V20M18 9C21 13 21 17 18 21" stroke="#FD1515"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M4 28L26 1" stroke="#FD1515" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- media -->
+  <audio src="./Audio/SHOOT011.mp3" preload="auto" muted="muted" data-shot></audio>
+  <audio src="./Audio/DeathFlash.flac" preload="auto" muted="muted" data-explosion></audio>
+  <audio src="./Audio/BraveSpaceExplorers.mp3" preload="auto" muted="muted" data-music></audio>
+
+  <script src="./js/index.js" type="module"></script>
+</body>
+
+</html>
+
+
+<!--
+✕ &#x2715; ✓ &#x2713;
+✖ &#x2716; ✔ &#x2714;
+
+✗ &#x2717;
+✘ &#x2718;
+
+× &#x00d7; &times; -->
