@@ -28,11 +28,11 @@ W celu zestrzelenia przeciwnika do wyboru masz 3 rodzaje amunicji o różnej sil
 
 ## Funkcjonalności
 
-- [x] Wybór rodzaju amunicji (1,2,3).
+- [x] 1, 2, 3 Wybór rodzaju amunicji.
 - [x] 'P' zatrzymanie gry.
-- [x] 'M' wyciszenie dźwięków.pa
+- [x] 'M' wyciszenie dźwięków
 - [x] 'D' tryb debugowania.
-- [x] Sterowanie statkiem.
+- [x] \2190 Sterowanie statkiem.
 - [x] 'Spacja' strzelanie.
 
 <p align="right"><<a href="#readme-top">⬆back to top</a>></p>
