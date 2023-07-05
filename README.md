@@ -32,7 +32,7 @@ W celu zestrzelenia przeciwnika do wyboru masz 3 rodzaje amunicji o różnej sil
 - [x] 'P' zatrzymanie gry.
 - [x] 'M' wyciszenie dźwięków
 - [x] 'D' tryb debugowania.
-- [x] &larr; Sterowanie statkiem.
+- [x] &larr; &uarr; &darr; &rarr; Sterowanie statkiem.
 - [x] 'Spacja' strzelanie.
 
 <p align="right"><<a href="#readme-top">⬆back to top</a>></p>
